@@ -25,10 +25,18 @@ public class Category {
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
     private List<Transaction> transactions;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    private Users user;
+    @ManyToMany
+    @JoinTable(
+        name = "user_category",
+        joinColumns = @JoinColumn(name = "category_id"),
+        inverseJoinColumns = @JoinColumn(name = "user_id")
+    )
+    private List<Users> users;
+    // @ManyToOne
+    // @JoinColumn(name = "user_id", nullable = false)
+    // private Users user;
 
+    
     // Getters and Setters
     public Long getId() {
         return id;
@@ -68,11 +76,23 @@ public class Category {
         this.transactions = transactions;
     }
 
-    public Users getUser() {
-        return user;
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
     }
 
-    public void setUser(Users user) {
-        this.user = user;
+    public List<Users> getUsers() {
+        return users;
     }
+
+    public void setUsers(List<Users> users) {
+        this.users = users;
+    }
+    // public Users getUser() {
+    //     return user;
+    // }
+
+    // public void setUser(Users user) {
+    //     this.user = user;
+    // }
 }

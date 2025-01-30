@@ -34,8 +34,10 @@ public class Users {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Transaction> transactions;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<Category> categories;  // Added user-category relationship
+    @ManyToMany(mappedBy = "users")
+    private List<Category> categories;
+    // @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    // private List<Category> categories;  // Added user-category relationship
 
     // Constructors
     public Users() {}

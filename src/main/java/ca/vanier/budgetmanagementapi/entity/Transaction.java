@@ -13,7 +13,7 @@ public class Transaction {
 
     private double amount;
 
-    private boolean income; // Renamed for better readability
+    private boolean income; //renamed for better readability
 
     @CreationTimestamp 
     @Column(updatable = false, nullable = false)
