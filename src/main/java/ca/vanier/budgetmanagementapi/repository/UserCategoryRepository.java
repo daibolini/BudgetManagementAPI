@@ -1,0 +1,9 @@
+package ca.vanier.budgetmanagementapi.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import ca.vanier.budgetmanagementapi.entity.Users;
+
+@Repository
+public interface UserCategoryRepository extends JpaRepository<Users, Long> {}
