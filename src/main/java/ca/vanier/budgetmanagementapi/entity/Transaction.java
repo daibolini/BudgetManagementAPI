@@ -2,6 +2,8 @@ package ca.vanier.budgetmanagementapi.entity;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 @Entity
 public class Transaction {
@@ -11,12 +13,13 @@ public class Transaction {
 
     private double amount;
 
-    private boolean isIncome;
-    
+    private boolean income; // Renamed for better readability
 
-    @Column(nullable = false, updatable = false)
+    @CreationTimestamp 
+    @Column(updatable = false, nullable = false)
     private LocalDateTime createdAt;
 
+    @UpdateTimestamp 
     @Column(nullable = true)
     private LocalDateTime updatedAt;
 
@@ -45,13 +48,19 @@ public class Transaction {
         this.amount = amount;
     }
 
+    public boolean isIncome() { // Ensuring proper boolean getter naming
+        return income;
+    }
+
+    public void setIncome(boolean income) {
+        this.income = income;
+    }
+
     public LocalDateTime getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
+    // Removed setCreatedAt() to prevent modifications
 
     public LocalDateTime getUpdatedAt() {
         return updatedAt;

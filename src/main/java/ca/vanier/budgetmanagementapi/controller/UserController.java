@@ -14,40 +14,40 @@ import java.util.List;
 @RequestMapping("/api/users")
 public class UserController {
     @Autowired
-    private UserServiceImpl userService;
+    private UserServiceImpl userServiceImpl;
 
     // CREATE a new user
     @PostMapping
     public ResponseEntity<Users> createUser(@RequestBody Users user) {
-        Users newUser = userService.save(user);
+        Users newUser = userServiceImpl.save(user);
         return new ResponseEntity<>(newUser, HttpStatus.CREATED);
     }
 
     // READ (get user by ID)
     @GetMapping("/{id}")
     public ResponseEntity<Users> getUserById(@PathVariable Long id) {
-        Users user = userService.findExistingById(id);
+        Users user = userServiceImpl.findExistingById(id);
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
 
     // READ (get all users)
     @GetMapping
     public ResponseEntity<List<Users>> getAllUsers() {
-        List<Users> users = userService.findAll();
+        List<Users> users = userServiceImpl.findAll();
         return new ResponseEntity<>(users, HttpStatus.OK);
     }
 
     // UPDATE a user
     @PutMapping("/{id}")
     public ResponseEntity<Users> updateUser(@PathVariable Long id, @RequestBody Users updatedUser) {
-        Users user = userService.update(id, updatedUser);
+        Users user = userServiceImpl.update(id, updatedUser);
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
 
     // DELETE a user
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
-        userService.delete(id);
+        userServiceImpl.delete(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }

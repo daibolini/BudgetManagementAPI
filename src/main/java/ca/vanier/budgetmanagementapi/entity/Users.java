@@ -3,8 +3,11 @@ package ca.vanier.budgetmanagementapi.entity;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import jakarta.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import jakarta.persistence.*;
 
 @Entity
 public class Users {
@@ -12,19 +15,41 @@ public class Users {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(unique = true, nullable = false)
     private String username;
 
+    @Column(nullable = false)
     private String password;
+
+    @Column(nullable = false)
     private String role;
 
-    @Column(nullable = false, updatable = false)
+    @CreationTimestamp 
+    @Column(updatable = false, nullable = false)
     private LocalDateTime createdAt;
 
-    @Column(nullable = true)
+    @UpdateTimestamp 
     private LocalDateTime updatedAt;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Transaction> transactions;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Category> categories;  // Added user-category relationship
+
+    // Constructors
+    public Users() {}
+
+    public Users(String username, String password, String role) {
+        this.username = username;
+        this.password = hashPassword(password);
+        this.role = role.startsWith("ROLE_") ? role : "ROLE_" + role.toUpperCase();
+    }
+
+    // Hash password before saving
+    private String hashPassword(String plainPassword) {
+        return new BCryptPasswordEncoder().encode(plainPassword);
+    }
 
     // Getters and Setters
     public Long getId() {
@@ -48,7 +73,7 @@ public class Users {
     }
 
     public void setRole(String role) {
-        this.role = role;
+        this.role = role.startsWith("ROLE_") ? role : "ROLE_" + role.toUpperCase();
     }
 
     public String getPassword() {
@@ -56,7 +81,7 @@ public class Users {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.password = hashPassword(password);
     }
 
     public List<Transaction> getTransactions() {
@@ -67,21 +92,19 @@ public class Users {
         this.transactions = transactions;
     }
 
+    public List<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(List<Category> categories) {
+        this.categories = categories;
+    }
 
     public LocalDateTime getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
-
     public LocalDateTime getUpdatedAt() {
         return updatedAt;
     }
-
-    public void setUpdatedAt(LocalDateTime updatedAt) {
-        this.updatedAt = updatedAt;
-    }
 }
-
