@@ -7,8 +7,4 @@ import ca.vanier.budgetmanagementapi.entity.Transaction;
 
 
 @Repository
-public interface TransactionRepository extends CrudRepository<Transaction, Long> {
-
-    
-
-}
+public interface TransactionRepository extends CrudRepository<Transaction, Long> {}
