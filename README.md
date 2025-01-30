@@ -46,14 +46,53 @@ mvn spring-boot:run
 mvn test
 ```
 
+
 ## API Enpoints
 
-#### Customer Registration API
-### POST	/customers/register
-To register customer.
+#### User Registration API
+### POST	api/users/
+To register user.
 
-### GET	/customers/list
-Get the list of customers.
+### GET	    api/users/{id}
+Get the user by user id.
 
-### DELETE	/customers/remove/{id}
-Remove customer by cusotmer id.
+### GET	    api/users/
+Get the list of users.
+
+### PUT	    api/users/{id}
+Update the user by user id.
+
+### DELETE	api/users/{id}
+Remove user by user id.
+
+#### Category API
+### POST	api/category/
+To create a category.
+
+### GET	    api/category/{id}
+Get the category by category id.
+
+### GET	    api/category/
+Get the list of categories.
+
+### PUT     api/category/{id}
+Update the category by category id.
+
+### DELETE	api/category/{id}
+Remove category by category id.
+
+#### Transaction API
+### POST	api/transaction/
+To create a transaction.
+
+### GET	api/transaction/{id}
+Get the transaction by transaction id.
+
+### GET		api/transaction/	
+Get the list of transactions.
+
+### PUT		api/transaction/{id}
+Update the transaction by transaction id.
+
+### DELETE	api/transaction/{id}
+Remove transaction by transaction id.
