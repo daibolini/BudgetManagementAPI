@@ -16523,3 +16523,197 @@ org.hibernate.PropertyValueException: not-null property references a null or tra
 2025-01-30T13:29:05.628-05:00  WARN 15948 --- [budgetmanagementapi] [SpringApplicationShutdownHook] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-232]
 2025-01-30T13:29:05.629-05:00  INFO 15948 --- [budgetmanagementapi] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2025-01-30T13:29:05.632-05:00  INFO 15948 --- [budgetmanagementapi] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-01-30T18:17:03.070-05:00  INFO 16392 --- [budgetmanagementapi] [main] .v.b.BudgetmanagementapiApplicationTests : Starting BudgetmanagementapiApplicationTests using Java 21.0.1 with PID 16392 (started by uribe in C:\Software Development Vanier 2024\Transactional Web Applications\budgetmanagementapi)
+2025-01-30T18:17:03.073-05:00  INFO 16392 --- [budgetmanagementapi] [main] .v.b.BudgetmanagementapiApplicationTests : No active profile set, falling back to 1 default profile: "default"
+2025-01-30T18:17:05.412-05:00  INFO 16392 --- [budgetmanagementapi] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-30T18:17:05.735-05:00  INFO 16392 --- [budgetmanagementapi] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 287 ms. Found 4 JPA repository interfaces.
+2025-01-30T18:17:10.089-05:00  INFO 16392 --- [budgetmanagementapi] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-30T18:17:10.511-05:00  INFO 16392 --- [budgetmanagementapi] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.5.Final
+2025-01-30T18:17:11.153-05:00  INFO 16392 --- [budgetmanagementapi] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-01-30T18:17:12.887-05:00  INFO 16392 --- [budgetmanagementapi] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-30T18:17:13.147-05:00  INFO 16392 --- [budgetmanagementapi] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-01-30T18:17:14.933-05:00  INFO 16392 --- [budgetmanagementapi] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:BudgetManagementAPI user=ADMIN
+2025-01-30T18:17:14.943-05:00  INFO 16392 --- [budgetmanagementapi] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-01-30T18:17:15.032-05:00  WARN 16392 --- [budgetmanagementapi] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-01-30T18:17:15.167-05:00  INFO 16392 --- [budgetmanagementapi] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-01-30T18:17:19.136-05:00  INFO 16392 --- [budgetmanagementapi] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-01-30T18:17:19.321-05:00  INFO 16392 --- [budgetmanagementapi] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-30T18:17:20.892-05:00  WARN 16392 --- [budgetmanagementapi] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-30T18:17:21.454-05:00  INFO 16392 --- [budgetmanagementapi] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2025-01-30T18:17:21.881-05:00  INFO 16392 --- [budgetmanagementapi] [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2025-01-30T18:17:24.022-05:00  INFO 16392 --- [budgetmanagementapi] [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:BudgetManagementAPI'
+2025-01-30T18:17:24.576-05:00  INFO 16392 --- [budgetmanagementapi] [main] .v.b.BudgetmanagementapiApplicationTests : Started BudgetmanagementapiApplicationTests in 22.8 seconds (process running for 26.346)
+2025-01-30T18:17:27.114-05:00  INFO 16392 --- [budgetmanagementapi] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-01-30T18:17:27.195-05:00  INFO 16392 --- [budgetmanagementapi] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-01-30T18:17:27.203-05:00  INFO 16392 --- [budgetmanagementapi] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-01-30T18:18:07.517-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] c.v.b.BudgetmanagementapiApplication     : Starting BudgetmanagementapiApplication using Java 21.0.1 with PID 17020 (C:\Software Development Vanier 2024\Transactional Web Applications\budgetmanagementapi\target\classes started by uribe in C:\Software Development Vanier 2024\Transactional Web Applications\budgetmanagementapi)
+2025-01-30T18:18:07.522-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] c.v.b.BudgetmanagementapiApplication     : No active profile set, falling back to 1 default profile: "default"
+2025-01-30T18:18:07.678-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-01-30T18:18:07.680-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-01-30T18:18:09.712-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-30T18:18:09.855-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 122 ms. Found 4 JPA repository interfaces.
+2025-01-30T18:18:11.487-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-01-30T18:18:11.516-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-01-30T18:18:11.517-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-01-30T18:18:11.704-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-01-30T18:18:11.705-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4024 ms
+2025-01-30T18:18:12.007-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-30T18:18:12.101-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.5.Final
+2025-01-30T18:18:12.164-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-01-30T18:18:12.606-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-30T18:18:12.658-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-01-30T18:18:12.965-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:BudgetManagementAPI user=ADMIN
+2025-01-30T18:18:12.968-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-01-30T18:18:13.016-05:00  WARN 17020 --- [budgetmanagementapi] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-01-30T18:18:13.052-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-01-30T18:18:14.806-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-01-30T18:18:14.927-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-30T18:18:15.604-05:00  WARN 17020 --- [budgetmanagementapi] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-30T18:18:15.832-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2025-01-30T18:18:16.013-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2025-01-30T18:18:16.581-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:BudgetManagementAPI'
+2025-01-30T18:18:16.750-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-01-30T18:18:16.828-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-01-30T18:18:16.842-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] c.v.b.BudgetmanagementapiApplication     : Started BudgetmanagementapiApplication in 10.148 seconds (process running for 11.086)
+2025-01-30T18:18:47.614-05:00  INFO 17020 --- [budgetmanagementapi] [http-nio-8080-exec-4] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-01-30T18:18:47.615-05:00  INFO 17020 --- [budgetmanagementapi] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-01-30T18:18:47.622-05:00  INFO 17020 --- [budgetmanagementapi] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2025-01-30T18:18:48.461-05:00  INFO 17020 --- [budgetmanagementapi] [http-nio-8080-exec-4] c.v.b.services.UserServiceImpl           : Saving user: null
+2025-01-30T18:19:35.180-05:00  INFO 17020 --- [budgetmanagementapi] [http-nio-8080-exec-7] c.v.b.services.CategoryServiceImpl       : Saving category: null
+2025-01-30T18:20:14.358-05:00  INFO 17020 --- [budgetmanagementapi] [http-nio-8080-exec-2] c.v.b.services.CategoryServiceImpl       : Saving category: null
+2025-01-30T18:20:24.779-05:00  INFO 17020 --- [budgetmanagementapi] [http-nio-8080-exec-6] c.v.b.services.CategoryServiceImpl       : Saving category: null
+2025-01-30T18:20:53.621-05:00  INFO 17020 --- [budgetmanagementapi] [http-nio-8080-exec-9] c.v.b.services.TransactionServiceImpl    : Saving transaction: null
+2025-01-30T18:21:17.718-05:00  WARN 17020 --- [budgetmanagementapi] [http-nio-8080-exec-10] .w.s.m.s.DefaultHandlerExceptionResolver : Ignoring exception, response committed already: org.springframework.http.converter.HttpMessageNotWritableException: Could not write JSON: Document nesting depth (1001) exceeds the maximum allowed (1000, from `StreamWriteConstraints.getMaxNestingDepth()`)
+2025-01-30T18:21:17.724-05:00  WARN 17020 --- [budgetmanagementapi] [http-nio-8080-exec-10] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotWritableException: Could not write JSON: Document nesting depth (1001) exceeds the maximum allowed (1000, from `StreamWriteConstraints.getMaxNestingDepth()`)]
+2025-01-30T18:37:54.475-05:00  INFO 17020 --- [budgetmanagementapi] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 11 class path changes (0 additions, 0 deletions, 11 modifications)
+2025-01-30T18:37:54.481-05:00  INFO 17020 --- [budgetmanagementapi] [Thread-5] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-01-30T18:37:54.510-05:00  INFO 17020 --- [budgetmanagementapi] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-01-30T18:37:54.523-05:00  INFO 17020 --- [budgetmanagementapi] [Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-01-30T18:37:54.547-05:00  WARN 17020 --- [budgetmanagementapi] [Thread-5] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-232]
+2025-01-30T18:37:54.548-05:00  INFO 17020 --- [budgetmanagementapi] [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-01-30T18:37:54.557-05:00  INFO 17020 --- [budgetmanagementapi] [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-01-30T18:37:54.831-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] c.v.b.BudgetmanagementapiApplication     : Starting BudgetmanagementapiApplication using Java 21.0.1 with PID 17020 (C:\Software Development Vanier 2024\Transactional Web Applications\budgetmanagementapi\target\classes started by uribe in C:\Software Development Vanier 2024\Transactional Web Applications\budgetmanagementapi)
+2025-01-30T18:37:54.839-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] c.v.b.BudgetmanagementapiApplication     : No active profile set, falling back to 1 default profile: "default"
+2025-01-30T18:37:55.535-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-30T18:37:55.609-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 71 ms. Found 4 JPA repository interfaces.
+2025-01-30T18:37:56.287-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-01-30T18:37:56.291-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-01-30T18:37:56.292-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-01-30T18:37:56.330-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-01-30T18:37:56.331-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1464 ms
+2025-01-30T18:37:56.468-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-30T18:37:56.474-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-01-30T18:37:56.499-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-30T18:37:56.505-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2025-01-30T18:37:56.511-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection conn10: url=jdbc:h2:mem:BudgetManagementAPI user=ADMIN
+2025-01-30T18:37:56.512-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2025-01-30T18:37:56.514-05:00  WARN 17020 --- [budgetmanagementapi] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-01-30T18:37:56.516-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-2)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-01-30T18:37:56.945-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-01-30T18:37:56.983-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-30T18:37:57.339-05:00  WARN 17020 --- [budgetmanagementapi] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-30T18:37:57.696-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2025-01-30T18:37:57.759-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2025-01-30T18:37:58.133-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:BudgetManagementAPI'
+2025-01-30T18:37:58.209-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-01-30T18:37:58.234-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-01-30T18:37:58.241-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] c.v.b.BudgetmanagementapiApplication     : Started BudgetmanagementapiApplication in 3.52 seconds (process running for 1192.485)
+2025-01-30T18:37:58.246-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-01-30T18:38:43.968-05:00  INFO 17020 --- [budgetmanagementapi] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 4 class path changes (0 additions, 0 deletions, 4 modifications)
+2025-01-30T18:38:43.970-05:00  INFO 17020 --- [budgetmanagementapi] [Thread-7] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-01-30T18:38:43.979-05:00  INFO 17020 --- [budgetmanagementapi] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-01-30T18:38:43.984-05:00  INFO 17020 --- [budgetmanagementapi] [Thread-7] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-01-30T18:38:43.991-05:00  WARN 17020 --- [budgetmanagementapi] [Thread-7] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-232]
+2025-01-30T18:38:43.994-05:00  INFO 17020 --- [budgetmanagementapi] [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2025-01-30T18:38:43.995-05:00  INFO 17020 --- [budgetmanagementapi] [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2025-01-30T18:38:44.424-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] c.v.b.BudgetmanagementapiApplication     : Starting BudgetmanagementapiApplication using Java 21.0.1 with PID 17020 (C:\Software Development Vanier 2024\Transactional Web Applications\budgetmanagementapi\target\classes started by uribe in C:\Software Development Vanier 2024\Transactional Web Applications\budgetmanagementapi)
+2025-01-30T18:38:44.426-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] c.v.b.BudgetmanagementapiApplication     : No active profile set, falling back to 1 default profile: "default"
+2025-01-30T18:38:45.213-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-30T18:38:45.319-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 103 ms. Found 4 JPA repository interfaces.
+2025-01-30T18:38:45.933-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-01-30T18:38:45.934-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-01-30T18:38:45.936-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-01-30T18:38:46.029-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-01-30T18:38:46.030-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1583 ms
+2025-01-30T18:38:46.228-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-30T18:38:46.234-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-01-30T18:38:46.271-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-30T18:38:46.275-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2025-01-30T18:38:46.278-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Added connection conn20: url=jdbc:h2:mem:BudgetManagementAPI user=ADMIN
+2025-01-30T18:38:46.279-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2025-01-30T18:38:46.281-05:00  WARN 17020 --- [budgetmanagementapi] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-01-30T18:38:46.281-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-3)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-01-30T18:38:46.588-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-01-30T18:38:46.611-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-30T18:38:46.857-05:00  WARN 17020 --- [budgetmanagementapi] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-30T18:38:47.081-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2025-01-30T18:38:47.142-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2025-01-30T18:38:47.499-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:BudgetManagementAPI'
+2025-01-30T18:38:47.594-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-01-30T18:38:47.677-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-01-30T18:38:47.710-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] c.v.b.BudgetmanagementapiApplication     : Started BudgetmanagementapiApplication in 3.544 seconds (process running for 1241.954)
+2025-01-30T18:38:47.716-05:00  INFO 17020 --- [budgetmanagementapi] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-01-30T18:39:07.084-05:00  INFO 17020 --- [budgetmanagementapi] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-01-30T18:39:07.096-05:00  INFO 17020 --- [budgetmanagementapi] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-01-30T18:39:07.101-05:00  INFO 17020 --- [budgetmanagementapi] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-01-30T18:39:07.109-05:00  WARN 17020 --- [budgetmanagementapi] [SpringApplicationShutdownHook] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-232]
+2025-01-30T18:39:07.111-05:00  INFO 17020 --- [budgetmanagementapi] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2025-01-30T18:39:07.114-05:00  INFO 17020 --- [budgetmanagementapi] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+2025-01-30T18:39:39.404-05:00  INFO 21288 --- [budgetmanagementapi] [main] .v.b.BudgetmanagementapiApplicationTests : Starting BudgetmanagementapiApplicationTests using Java 21.0.1 with PID 21288 (started by uribe in C:\Software Development Vanier 2024\Transactional Web Applications\budgetmanagementapi)
+2025-01-30T18:39:39.411-05:00  INFO 21288 --- [budgetmanagementapi] [main] .v.b.BudgetmanagementapiApplicationTests : No active profile set, falling back to 1 default profile: "default"
+2025-01-30T18:39:41.709-05:00  INFO 21288 --- [budgetmanagementapi] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-30T18:39:41.959-05:00  INFO 21288 --- [budgetmanagementapi] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 217 ms. Found 4 JPA repository interfaces.
+2025-01-30T18:39:43.961-05:00  INFO 21288 --- [budgetmanagementapi] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-30T18:39:44.231-05:00  INFO 21288 --- [budgetmanagementapi] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.5.Final
+2025-01-30T18:39:44.327-05:00  INFO 21288 --- [budgetmanagementapi] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-01-30T18:39:45.220-05:00  INFO 21288 --- [budgetmanagementapi] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-30T18:39:45.354-05:00  INFO 21288 --- [budgetmanagementapi] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-01-30T18:39:45.965-05:00  INFO 21288 --- [budgetmanagementapi] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:BudgetManagementAPI user=ADMIN
+2025-01-30T18:39:45.969-05:00  INFO 21288 --- [budgetmanagementapi] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-01-30T18:39:46.025-05:00  WARN 21288 --- [budgetmanagementapi] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-01-30T18:39:46.077-05:00  INFO 21288 --- [budgetmanagementapi] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-01-30T18:39:48.210-05:00  INFO 21288 --- [budgetmanagementapi] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-01-30T18:39:48.335-05:00  INFO 21288 --- [budgetmanagementapi] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-30T18:39:49.544-05:00  WARN 21288 --- [budgetmanagementapi] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-30T18:39:49.905-05:00  INFO 21288 --- [budgetmanagementapi] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2025-01-30T18:39:50.224-05:00  INFO 21288 --- [budgetmanagementapi] [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2025-01-30T18:39:51.963-05:00  INFO 21288 --- [budgetmanagementapi] [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:BudgetManagementAPI'
+2025-01-30T18:39:52.367-05:00  INFO 21288 --- [budgetmanagementapi] [main] .v.b.BudgetmanagementapiApplicationTests : Started BudgetmanagementapiApplicationTests in 13.915 seconds (process running for 17.123)
+2025-01-30T18:39:54.638-05:00  INFO 21288 --- [budgetmanagementapi] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-01-30T18:39:54.689-05:00  INFO 21288 --- [budgetmanagementapi] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-01-30T18:39:54.702-05:00  INFO 21288 --- [budgetmanagementapi] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

@@ -1,11 +1,14 @@
 package ca.vanier.budgetmanagementapi.entity;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.*;
 
@@ -32,7 +35,8 @@ public class Users {
     private LocalDateTime updatedAt;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<Transaction> transactions;
+    @JsonManagedReference
+    private List<Transaction> transactions = new ArrayList<>();
 
     @ManyToMany(mappedBy = "users")
     private List<Category> categories;
