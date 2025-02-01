@@ -6,6 +6,8 @@ import java.util.List;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 public class Category {
     @Id
@@ -15,27 +17,17 @@ public class Category {
     private String description; 
 
     @CreationTimestamp 
-    //@Column(updatable = false, nullable = false)
     private LocalDateTime createdAt;
 
     @UpdateTimestamp 
-    //@Column(nullable = true)
     private LocalDateTime updatedAt;
 
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
+    @JsonBackReference
     private List<Transaction> transactions;
 
     @ManyToMany
-    // @JoinTable(
-    //     name = "user_category",
-    //     joinColumns = @JoinColumn(name = "category_id"),
-    //     inverseJoinColumns = @JoinColumn(name = "user_id")
-    // )
     private List<Users> users;
-    // @ManyToOne
-    // @JoinColumn(name = "user_id", nullable = false)
-    // private Users user;
-
     
     // Getters and Setters
     public Long getId() {
@@ -58,7 +50,7 @@ public class Category {
         return createdAt;
     }
 
-    // Removed setCreatedAt() to keep it immutable
+    //removed setCreatedAt() to keep it immutable
 
     public LocalDateTime getUpdatedAt() {
         return updatedAt;
@@ -88,11 +80,4 @@ public class Category {
     public void setUsers(List<Users> users) {
         this.users = users;
     }
-    // public Users getUser() {
-    //     return user;
-    // }
-
-    // public void setUser(Users user) {
-    //     this.user = user;
-    // }
 }

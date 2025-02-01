@@ -34,7 +34,8 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public Category update(Long id, Category categoryDetails) {
         Category existingCategory = findExistingById(id);
-        existingCategory.setDescription(existingCategory.getDescription());
+        //existingCategory.setDescription(existingCategory.getDescription());
+        existingCategory.setDescription(categoryDetails.getDescription());
         return categoryRepository.save(existingCategory);
     }
 
@@ -59,7 +60,7 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     @Transactional
-    // Use transactional to ensure the task is closed after completion
+    //use transactional to ensure the task is closed after completion
     public void delete(Long id) {
         logger.info("Deleting category: " + id);
         Category user = categoryRepository.findById(id)

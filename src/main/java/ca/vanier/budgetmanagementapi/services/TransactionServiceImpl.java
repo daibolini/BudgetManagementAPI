@@ -32,10 +32,10 @@ public class TransactionServiceImpl implements TransactionService {
 
     @Override
     public Transaction update(Long id, Transaction transactionDetails) {
-        // Find the existing transaction by ID
+        //find the existing transaction by ID
         Transaction existingTransaction = findExistingById(id);
 
-        // Update the fields of the existing transaction
+        //update the fields of the existing transaction
         existingTransaction.setAmount(transactionDetails.getAmount());
         existingTransaction.setIncome(transactionDetails.isIncome());
         
@@ -43,11 +43,7 @@ public class TransactionServiceImpl implements TransactionService {
         if (transactionDetails.getCategory() != null) {
             existingTransaction.setCategory(transactionDetails.getCategory());
         }
-        // if (transactionDetails.getUser() != null) {
-        //     existingTransaction.setUser(transactionDetails.getUser());
-        // }
-
-        // Save the updated transaction
+        //save the updated transaction
         return transactionRepository.save(existingTransaction);
     }
 
@@ -73,11 +69,12 @@ public class TransactionServiceImpl implements TransactionService {
 
     @Override
     @Transactional
-    // Use transactional to ensure the task is closed after completion
+    //use transactional to ensure the task is closed after completion
     public void delete(Long id) {
         logger.info("Deleting transaction: " + id);
         Transaction transaction = transactionRepository.findById(id)
-                .orElseThrow(() -> new UserNotFoundException("Transaction with id " + id + " not found"));
+                //.orElseThrow(() -> new UserNotFoundException("Transaction with id " + id + " not found"));
+                .orElseThrow(() -> new EntityNotFoundException("Transaction with id " + id + " not found"));
                 transactionRepository.delete(transaction);
         logger.info("Deleted transaction with id deleted successfully" + id);
     }

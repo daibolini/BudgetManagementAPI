@@ -15,23 +15,20 @@ public class Transaction {
 
     private double amount;
 
-    private boolean income; //renamed for better readability
+    private boolean income;
 
     @CreationTimestamp 
-    //@Column(updatable = false, nullable = false)
     private LocalDateTime createdAt;
 
     @UpdateTimestamp 
-    //@Column(nullable = true)
     private LocalDateTime updatedAt;
 
-    //@ManyToOne
-    //@JoinColumn(name = "user_id", nullable = false)
-    //@JsonBackReference
-    //private Users user;
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    @JsonBackReference
+    private Users user;
 
     @ManyToOne
-    //@JoinColumn(name = "category_id", nullable = false)
     private Category category;
 
     // Getters and Setters
@@ -51,7 +48,7 @@ public class Transaction {
         this.amount = amount;
     }
 
-    public boolean isIncome() { // Ensuring proper boolean getter naming
+    public boolean isIncome() {
         return income;
     }
 

@@ -18,30 +18,21 @@ public class Users {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    //@Column(unique = true, nullable = false)
     private String username;
 
-    //@Column(nullable = false)
     private String password;
 
-    //@Column(nullable = false)
     private String role;
 
     @CreationTimestamp 
-    //@Column(updatable = false, nullable = false)
     private LocalDateTime createdAt;
 
     @UpdateTimestamp 
     private LocalDateTime updatedAt;
 
-    @OneToMany(mappedBy = "users", cascade = CascadeType.ALL)
-    //@JsonManagedReference
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<Transaction> transactions = new ArrayList<>();
-
-    //@ManyToMany(mappedBy = "users")
-    //private List<Category> categories;
-    // @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    // private List<Category> categories;  // Added user-category relationship
 
     // Constructors
     public Users() {}
@@ -52,7 +43,7 @@ public class Users {
         this.role = role.startsWith("ROLE_") ? role : "ROLE_" + role.toUpperCase();
     }
 
-    // Hash password before saving
+    //hash password before saving
     private String hashPassword(String plainPassword) {
         return new BCryptPasswordEncoder().encode(plainPassword);
     }
@@ -97,14 +88,6 @@ public class Users {
     public void setTransactions(List<Transaction> transactions) {
         this.transactions = transactions;
     }
-
-    // public List<Category> getCategories() {
-    //     return categories;
-    // }
-
-    // public void setCategories(List<Category> categories) {
-    //     this.categories = categories;
-    // }
 
     public LocalDateTime getCreatedAt() {
         return createdAt;
