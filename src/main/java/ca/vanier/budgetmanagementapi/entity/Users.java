@@ -18,28 +18,28 @@ public class Users {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(unique = true, nullable = false)
+    //@Column(unique = true, nullable = false)
     private String username;
 
-    @Column(nullable = false)
+    //@Column(nullable = false)
     private String password;
 
-    @Column(nullable = false)
+    //@Column(nullable = false)
     private String role;
 
     @CreationTimestamp 
-    @Column(updatable = false, nullable = false)
+    //@Column(updatable = false, nullable = false)
     private LocalDateTime createdAt;
 
     @UpdateTimestamp 
     private LocalDateTime updatedAt;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    @JsonManagedReference
+    @OneToMany(mappedBy = "users", cascade = CascadeType.ALL)
+    //@JsonManagedReference
     private List<Transaction> transactions = new ArrayList<>();
 
-    @ManyToMany(mappedBy = "users")
-    private List<Category> categories;
+    //@ManyToMany(mappedBy = "users")
+    //private List<Category> categories;
     // @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     // private List<Category> categories;  // Added user-category relationship
 
@@ -98,13 +98,13 @@ public class Users {
         this.transactions = transactions;
     }
 
-    public List<Category> getCategories() {
-        return categories;
-    }
+    // public List<Category> getCategories() {
+    //     return categories;
+    // }
 
-    public void setCategories(List<Category> categories) {
-        this.categories = categories;
-    }
+    // public void setCategories(List<Category> categories) {
+    //     this.categories = categories;
+    // }
 
     public LocalDateTime getCreatedAt() {
         return createdAt;

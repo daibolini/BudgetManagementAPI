@@ -20,11 +20,11 @@ public class UserCategory {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
+    //@JoinColumn(name = "user_id", nullable = false)
     private Users user;
 
     @ManyToOne
-    @JoinColumn(name = "category_id", nullable = false)
+    //@JoinColumn(name = "category_id", nullable = false)
     private Category category;
 
     @CreationTimestamp

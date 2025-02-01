@@ -23,10 +23,10 @@ public class UserCategoryServiceImpl implements UserCategoryService {
         Category category = categoryRepository.findById(categoryId)
                 .orElseThrow(() -> new RuntimeException("Category not found"));
 
-        if (!user.getCategories().contains(category)) {
-            user.getCategories().add(category);
-            userRepository.save(user);
-        }
+        // if (!user.getCategories().contains(category)) {
+        //     user.getCategories().add(category);
+        //     userRepository.save(user);
+        // }
     }
 
     @Override
@@ -36,7 +36,7 @@ public class UserCategoryServiceImpl implements UserCategoryService {
         Category category = categoryRepository.findById(categoryId)
                 .orElseThrow(() -> new RuntimeException("Category not found"));
 
-        user.getCategories().remove(category);
-        userRepository.save(user);
+        // user.getCategories().remove(category);
+        // userRepository.save(user);
     }
 }

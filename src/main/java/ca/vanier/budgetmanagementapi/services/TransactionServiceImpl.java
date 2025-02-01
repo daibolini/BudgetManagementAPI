@@ -43,9 +43,9 @@ public class TransactionServiceImpl implements TransactionService {
         if (transactionDetails.getCategory() != null) {
             existingTransaction.setCategory(transactionDetails.getCategory());
         }
-        if (transactionDetails.getUser() != null) {
-            existingTransaction.setUser(transactionDetails.getUser());
-        }
+        // if (transactionDetails.getUser() != null) {
+        //     existingTransaction.setUser(transactionDetails.getUser());
+        // }
 
         // Save the updated transaction
         return transactionRepository.save(existingTransaction);

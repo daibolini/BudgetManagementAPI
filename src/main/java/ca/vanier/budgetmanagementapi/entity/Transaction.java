@@ -18,20 +18,20 @@ public class Transaction {
     private boolean income; //renamed for better readability
 
     @CreationTimestamp 
-    @Column(updatable = false, nullable = false)
+    //@Column(updatable = false, nullable = false)
     private LocalDateTime createdAt;
 
     @UpdateTimestamp 
-    @Column(nullable = true)
+    //@Column(nullable = true)
     private LocalDateTime updatedAt;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    @JsonBackReference
-    private Users user;
+    //@ManyToOne
+    //@JoinColumn(name = "user_id", nullable = false)
+    //@JsonBackReference
+    //private Users user;
 
     @ManyToOne
-    @JoinColumn(name = "category_id", nullable = false)
+    //@JoinColumn(name = "category_id", nullable = false)
     private Category category;
 
     // Getters and Setters
@@ -73,13 +73,13 @@ public class Transaction {
         this.updatedAt = updatedAt;
     }
 
-    public Users getUser() {
-        return user;
-    }
+    // public Users getUser() {
+    //     return user;
+    // }
 
-    public void setUser(Users user) {
-        this.user = user;
-    }
+    // public void setUser(Users user) {
+    //     this.user = user;
+    // }
 
     public Category getCategory() {
         return category;

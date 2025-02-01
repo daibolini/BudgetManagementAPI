@@ -15,22 +15,22 @@ public class Category {
     private String description; 
 
     @CreationTimestamp 
-    @Column(updatable = false, nullable = false)
+    //@Column(updatable = false, nullable = false)
     private LocalDateTime createdAt;
 
     @UpdateTimestamp 
-    @Column(nullable = true)
+    //@Column(nullable = true)
     private LocalDateTime updatedAt;
 
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
     private List<Transaction> transactions;
 
     @ManyToMany
-    @JoinTable(
-        name = "user_category",
-        joinColumns = @JoinColumn(name = "category_id"),
-        inverseJoinColumns = @JoinColumn(name = "user_id")
-    )
+    // @JoinTable(
+    //     name = "user_category",
+    //     joinColumns = @JoinColumn(name = "category_id"),
+    //     inverseJoinColumns = @JoinColumn(name = "user_id")
+    // )
     private List<Users> users;
     // @ManyToOne
     // @JoinColumn(name = "user_id", nullable = false)
