@@ -3,9 +3,14 @@ package ca.vanier.budgetmanagementapi.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import ca.vanier.budgetmanagementapi.Exceptions.UserNotFoundException;
+import ca.vanier.budgetmanagementapi.entity.Category;
 import ca.vanier.budgetmanagementapi.entity.Transaction;
+import ca.vanier.budgetmanagementapi.entity.UserCategory;
+import ca.vanier.budgetmanagementapi.entity.Users;
+import ca.vanier.budgetmanagementapi.repository.CategoryRepository;
 import ca.vanier.budgetmanagementapi.repository.TransactionRepository;
+import ca.vanier.budgetmanagementapi.repository.UserCategoryRepository;
+import ca.vanier.budgetmanagementapi.repository.UserRepository;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 
@@ -24,11 +29,38 @@ public class TransactionServiceImpl implements TransactionService {
     @Autowired
     private TransactionRepository transactionRepository;
 
+    @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
+    private CategoryRepository categoryRepository;
+
+    @Autowired
+    private UserCategoryRepository userCategoryRepository;
+
     @Override
     public Transaction save(Transaction transaction) {
-        logger.info("Saving transaction: " + transaction.getId());
-        return transactionRepository.save(transaction);
+    logger.info("Saving transaction: " + transaction.getId());
+    Users existingUser = userRepository.findById(transaction.getUser().getId())
+    .orElseThrow(() -> new RuntimeException("User not found"));
+
+    // Ensure category exists
+    Category existingCategory = categoryRepository.findById(transaction.getCategory().getId())
+    .orElseThrow(() -> new RuntimeException("Category not found"));
+
+    // Save the transaction first
+    Transaction savedTransaction = transactionRepository.save(transaction);
+
+    if (transactionRepository.existsById(transaction.getId())) {
+    // Create and save a new UserCategory entry
+    UserCategory userCategory = new UserCategory();
+    userCategory.setUser(existingUser);
+    userCategory.setCategory(existingCategory);
+    userCategoryRepository.save(userCategory);
     }
+
+return savedTransaction; 
+}
 
     @Override
     public Transaction update(Long id, Transaction transactionDetails) {
