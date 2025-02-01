@@ -129,6 +129,30 @@ return savedTransaction;
     }
 
 
+    @Override
+    public double getTotalIncomeByUser(Long userId) {
+        return transactionRepository.findAllByUserIdAndCategoryId(userId, 1L)
+                .stream()
+                .mapToDouble(Transaction::getAmount)
+                .sum();
+    }
+
+    @Override
+    public double getTotalExpensesByUser(Long userId) {
+        return transactionRepository.findAllByUserIdAndCategoryIdNot(userId, 1L)
+                .stream()
+                .mapToDouble(Transaction::getAmount)
+                .sum();
+    }
+
+    @Override
+    public double getUserBalance(Long userId) {
+        double income = getTotalIncomeByUser(userId);
+        double expenses = getTotalExpensesByUser(userId);
+        return income - expenses; // Balance = Income - Expenses
+    }
+
+
     
 
 }

@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.*;
 import ca.vanier.budgetmanagementapi.entity.Transaction;
 import ca.vanier.budgetmanagementapi.services.TransactionServiceImpl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/transaction")
@@ -56,7 +58,6 @@ public class TransactionController {
         return ResponseEntity.ok(TransactionServiceImpl.getAllTransactionsByUserId(userId));
     }
 
-
     @GetMapping("/user/{userId}/expenses")
     public ResponseEntity<List<Transaction>> getAllExpensesByUserId(@PathVariable Long userId) {
         return ResponseEntity.ok(TransactionServiceImpl.getExpensesByUserId(userId));
@@ -65,5 +66,29 @@ public class TransactionController {
     @GetMapping("/user/{userId}/incomes")
     public ResponseEntity<List<Transaction>> getAllIncomesByUserId(@PathVariable Long userId) {
         return ResponseEntity.ok(TransactionServiceImpl.getIncomesByUserId(userId));
+    }
+
+    // @GetMapping("/user/{userId}/income")
+    // public ResponseEntity<Double> getTotalIncome(@PathVariable Long userId) {
+    //     return ResponseEntity.ok(TransactionServiceImpl.getTotalIncomeByUser(userId));
+    // }
+
+    // @GetMapping("/user/{userId}/expenses")
+    // public ResponseEntity<Double> getTotalExpenses(@PathVariable Long userId) {
+    //     return ResponseEntity.ok(TransactionServiceImpl.getTotalExpensesByUser(userId));
+    // }
+
+    // @GetMapping("/user/{userId}/balance")
+    // public ResponseEntity<Double> getUserBalance(@PathVariable Long userId) {
+    //     return ResponseEntity.ok(TransactionServiceImpl.getUserBalance(userId));
+    // }
+
+    @GetMapping("/summary/{userId}")
+    public Map<String, Double> getBudgetSummary(@PathVariable Long userId) {
+        Map<String, Double> summary = new HashMap<>();
+        summary.put("totalIncome", TransactionServiceImpl.getTotalIncomeByUser(userId));
+        summary.put("totalExpenses", TransactionServiceImpl.getTotalExpensesByUser(userId));
+        summary.put("balance", TransactionServiceImpl.getUserBalance(userId));
+        return summary;
     }
 }

@@ -25,4 +25,12 @@ public interface TransactionService {
 
     List<Transaction> getIncomesByUserId(Long userId);
 
+    double getTotalIncomeByUser(Long userId);
+
+    double getTotalExpensesByUser(Long userId);
+    
+    double getUserBalance(Long userId);
+
+
+
 }
