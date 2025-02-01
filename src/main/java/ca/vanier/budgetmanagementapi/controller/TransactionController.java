@@ -50,4 +50,20 @@ public class TransactionController {
         TransactionServiceImpl.delete(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+
+    @GetMapping("/user/{userId}")
+    public ResponseEntity<List<Transaction>> getTransactionsByUser(@PathVariable Long userId) {
+        return ResponseEntity.ok(TransactionServiceImpl.getAllTransactionsByUserId(userId));
+    }
+
+
+    @GetMapping("/user/{userId}/expenses")
+    public ResponseEntity<List<Transaction>> getAllExpensesByUserId(@PathVariable Long userId) {
+        return ResponseEntity.ok(TransactionServiceImpl.getExpensesByUserId(userId));
+    }
+
+    @GetMapping("/user/{userId}/incomes")
+    public ResponseEntity<List<Transaction>> getAllIncomesByUserId(@PathVariable Long userId) {
+        return ResponseEntity.ok(TransactionServiceImpl.getIncomesByUserId(userId));
+    }
 }

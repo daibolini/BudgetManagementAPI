@@ -111,4 +111,24 @@ return savedTransaction;
         logger.info("Deleted transaction with id deleted successfully" + id);
     }
 
+    @Override
+    public List<Transaction> getAllTransactionsByUserId(Long userId) {
+        return transactionRepository.findAllByUserId(userId);
+    }
+
+    //This will return expenses 
+    //As income is set as category id of 1
+    @Override
+    public List<Transaction> getExpensesByUserId(Long userId) {
+        return transactionRepository.findAllByUserIdAndCategoryIdNot(userId, 1L);
+    }
+
+    @Override
+    public List<Transaction> getIncomesByUserId(Long userId) {
+        return transactionRepository.findAllByUserIdAndCategoryId(userId, 1L);
+    }
+
+
+    
+
 }
