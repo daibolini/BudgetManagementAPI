@@ -18,4 +18,11 @@ public interface TransactionService {
 
     void delete(Long id);
 
+
+    List<Transaction> getAllTransactionsByUserId(Long userId);
+
+    List<Transaction> getExpensesByUserId(Long userId);
+
+    List<Transaction> getIncomesByUserId(Long userId);
+
 }

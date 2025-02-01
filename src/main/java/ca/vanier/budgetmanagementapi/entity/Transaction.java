@@ -70,13 +70,17 @@ public class Transaction {
         this.updatedAt = updatedAt;
     }
 
-    // public Users getUser() {
-    //     return user;
-    // }
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
 
-    // public void setUser(Users user) {
-    //     this.user = user;
-    // }
+    public Users getUser() {
+        return user;
+    }
+
+    public void setUser(Users user) {
+        this.user = user;
+    }
 
     public Category getCategory() {
         return category;
