@@ -70,6 +70,10 @@ public class Transaction {
         this.updatedAt = updatedAt;
     }
 
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
     public Users getUser() {
         return user;
     }
