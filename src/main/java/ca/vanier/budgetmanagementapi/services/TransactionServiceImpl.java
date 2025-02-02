@@ -3,6 +3,12 @@ package ca.vanier.budgetmanagementapi.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import ca.vanier.budgetmanagementapi.Exceptions.CategoryNotFoundException;
+import ca.vanier.budgetmanagementapi.Exceptions.TransactionNotFoundException;
+import ca.vanier.budgetmanagementapi.Exceptions.UserNotFoundException;
+import ca.vanier.budgetmanagementapi.Exceptions.CategoryNotFoundException;
+import ca.vanier.budgetmanagementapi.Exceptions.UserNotFoundException;
+import ca.vanier.budgetmanagementapi.Exceptions.CategoryNotFoundException;
 import ca.vanier.budgetmanagementapi.entity.Category;
 import ca.vanier.budgetmanagementapi.entity.Transaction;
 import ca.vanier.budgetmanagementapi.entity.UserCategory;
@@ -14,7 +20,6 @@ import ca.vanier.budgetmanagementapi.repository.UserRepository;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -43,43 +48,53 @@ public class TransactionServiceImpl implements TransactionService {
     private UserCategoryRepository userCategoryRepository;
 
     @Override
+    @Transactional
     public Transaction save(Transaction transaction) {
         logger.info("Saving transaction: " + transaction.getId());
         Users existingUser = userRepository.findById(transaction.getUser().getId())
-        .orElseThrow(() -> new RuntimeException("User not found"));
+        .orElseThrow(() -> new UserNotFoundException("User not found with ID: " + transaction.getUser().getId()));
 
         // Ensure category exists
         Category existingCategory = categoryRepository.findById(transaction.getCategory().getId())
-        .orElseThrow(() -> new RuntimeException("Category not found"));
+        .orElseThrow(() -> new CategoryNotFoundException("Category not found with ID: " + transaction.getCategory().getId()));
 
         // Save the transaction first
         Transaction savedTransaction = transactionRepository.save(transaction);
 
-        if (transactionRepository.existsById(transaction.getId())) {
+        if (transactionRepository.existsById(savedTransaction.getId())) {
             // Create and save a new UserCategory entry
             UserCategory userCategory = new UserCategory();
             userCategory.setUser(existingUser);
             userCategory.setCategory(existingCategory);
-            userCategoryRepository.save(userCategory);
+            userCategoryRepository.save(userCategory);  
         }
-
         return savedTransaction; 
     }
 
     @Override
     public Transaction update(Long id, Transaction transactionDetails) {
-        //find the existing transaction by ID
-        Transaction existingTransaction = findExistingById(id);
+        logger.info("Updating transaction: " + id);
 
-        //update the fields of the existing transaction
+        Transaction existingTransaction = transactionRepository.findById(id)
+        .orElseThrow(() -> new TransactionNotFoundException("Transaction not found with ID: " + id));
+
         existingTransaction.setAmount(transactionDetails.getAmount());
         existingTransaction.setIncome(transactionDetails.isIncome());
         
-        // If the category or user has changed, update those associations as well
-        if (transactionDetails.getCategory() != null) {
+       
+        if (transactionDetails.getAmount() != existingTransaction.getAmount()) {
+            existingTransaction.setAmount(transactionDetails.getAmount());
+        }
+        if (transactionDetails.isIncome() != existingTransaction.isIncome()) {
+            existingTransaction.setIncome(transactionDetails.isIncome());
+        }
+
+        
+        if (transactionDetails.getCategory() != null && 
+            !transactionDetails.getCategory().equals(existingTransaction.getCategory())) {
             existingTransaction.setCategory(transactionDetails.getCategory());
         }
-        //save the updated transaction
+        
         return transactionRepository.save(existingTransaction);
     }
 
@@ -92,7 +107,7 @@ public class TransactionServiceImpl implements TransactionService {
     public Transaction findExistingById(Long id) {
         return transactionRepository
                 .findById(id)
-                .orElseThrow(() -> new EntityNotFoundException(
+                .orElseThrow(() -> new TransactionNotFoundException(
                         String.format("Transaction with ID %d not found", id)));
     }
 
@@ -109,8 +124,7 @@ public class TransactionServiceImpl implements TransactionService {
     public void delete(Long id) {
         logger.info("Deleting transaction: " + id);
         Transaction transaction = transactionRepository.findById(id)
-                //.orElseThrow(() -> new UserNotFoundException("Transaction with id " + id + " not found"));
-                .orElseThrow(() -> new EntityNotFoundException("Transaction with id " + id + " not found"));
+                .orElseThrow(() -> new TransactionNotFoundException("Transaction with id " + id + " not found"));
                 transactionRepository.delete(transaction);
         logger.info("Deleted transaction with id deleted successfully" + id);
     }

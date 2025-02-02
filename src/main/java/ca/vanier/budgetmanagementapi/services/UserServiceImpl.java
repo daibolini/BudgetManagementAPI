@@ -3,7 +3,7 @@ package ca.vanier.budgetmanagementapi.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import ca.vanier.budgetmanagementapi.Exceptions.UserNotFoundException;
+import ca.vanier.budgetmanagementapi.Exceptions.TransactionNotFoundException;
 import ca.vanier.budgetmanagementapi.entity.Users;
 import ca.vanier.budgetmanagementapi.repository.UserRepository;
 import jakarta.persistence.EntityNotFoundException;
@@ -64,7 +64,7 @@ public class UserServiceImpl implements UserService {
     public void delete(Long id) {
         logger.info("Deleting user: " + id);
         Users user = userRepository.findById(id)
-                .orElseThrow(() -> new UserNotFoundException("User with id " + id + " not found"));
+                .orElseThrow(() -> new TransactionNotFoundException("User with id " + id + " not found"));
         userRepository.delete(user);
         logger.info("Deleted user with id deleted successfully" + id);
     }
