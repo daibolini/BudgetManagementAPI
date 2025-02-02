@@ -1,6 +1,7 @@
 package ca.vanier.budgetmanagementapi.services;
 
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -35,6 +36,8 @@ public interface TransactionService {
     double getUserBalanceByCategory(Long userId, Long categoryId);
 
     Map<String, Double> getUserTransactionCategorySummary(Long userId);
+    
+    List<Transaction> getTransactionsByDateRange(Long userId, LocalDateTime startDate, LocalDateTime endDate);
 
 
 

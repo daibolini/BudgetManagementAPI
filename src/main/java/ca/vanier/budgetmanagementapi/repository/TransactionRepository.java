@@ -1,5 +1,6 @@
 package ca.vanier.budgetmanagementapi.repository;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
@@ -16,4 +17,6 @@ public interface TransactionRepository extends CrudRepository<Transaction, Long>
     List<Transaction> findAllByUserIdAndCategoryIdNot(Long userId, Long categoryId);
 
     List<Transaction> findAllByUserIdAndCategoryId(Long userId, Long categoryId);
+
+    List<Transaction> findAllByUserIdAndCreatedAtBetween(Long userId, LocalDateTime startDate, LocalDateTime endDate);
 }
