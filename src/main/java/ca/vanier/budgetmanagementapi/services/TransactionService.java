@@ -2,6 +2,7 @@ package ca.vanier.budgetmanagementapi.services;
 
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import ca.vanier.budgetmanagementapi.entity.Transaction;
@@ -30,6 +31,10 @@ public interface TransactionService {
     double getTotalExpensesByUser(Long userId);
     
     double getUserBalance(Long userId);
+
+    double getUserBalanceByCategory(Long userId, Long categoryId);
+
+    Map<String, Double> getUserTransactionCategorySummary(Long userId);
 
 
 

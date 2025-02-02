@@ -16,8 +16,10 @@ import jakarta.transaction.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -151,6 +153,34 @@ return savedTransaction;
         double expenses = getTotalExpensesByUser(userId);
         return income - expenses; // Balance = Income - Expenses
     }
+
+    // @Override
+    // public double getUserBalanceByCategory(Long userId, Long categoryId) {
+    //     return transactionRepository.findAllByUserIdAndCategoryIdNot(userId, categoryId)
+    //     .stream()
+    //     .mapToDouble(Transaction::getAmount)
+    //     .sum();
+    // }
+
+    @Override
+    public Map<String, Double> getUserTransactionCategorySummary(Long userId) {
+        return transactionRepository.findAllByUserId(userId)
+            .stream()
+            .collect(Collectors.groupingBy(
+                t -> t.getCategory().getDescription(), // Group by category name
+                Collectors.summingDouble(Transaction::getAmount) // Sum the amounts
+            ));
+    }
+
+    @Override
+    public double getUserBalanceByCategory(Long userId, Long categoryId) {
+         getUserTransactionCategorySummary(userId);
+        
+        return getUserBalance(userId);
+
+    }
+
+
 
 
     

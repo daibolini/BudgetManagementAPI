@@ -91,4 +91,21 @@ public class TransactionController {
         summary.put("balance", TransactionServiceImpl.getUserBalance(userId));
         return summary;
     }
+
+    @GetMapping("/summary/{userId}")
+    public Map<String, String> getBudgetSummaryByCategory(@PathVariable Long userId) {
+        Map<String, String> summary = new HashMap<>();
+
+    
+    Map<String, Double> summaryTotal = TransactionServiceImpl.getUserTransactionCategorySummary(userId);
+
+    summaryTotal.forEach((categoryDescription, amount) -> 
+        summary.put(categoryDescription, String.format("%.2f", amount)) // Format to 2 decimal places
+    );
+
+
+    summary.put("balance", String.format("%.2f", TransactionServiceImpl.getUserBalance(userId)));
+
+    return summary;
+    }
 }
