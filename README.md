@@ -50,49 +50,76 @@ mvn test
 ## API Enpoints
 
 #### User Registration API
+UserController contains all components related to user management in the BudgetManagementAPI. It is responsible for handling user creation, retrieval, updates, and deletion through RESTful endpoints.
+
 ### POST	api/users/
-To register user.
+Creates a new user account with a specified username, password, and role.
 
 ### GET	    api/users/{id}
-Get the user by user id.
+Retrieves details of a specific user by their ID.
 
 ### GET	    api/users/
-Get the list of users.
+Retrieves a list of all registered users.
 
 ### PUT	    api/users/{id}
-Update the user by user id.
+Updates the user information such as username, password, or role.
 
 ### DELETE	api/users/{id}
-Remove user by user id.
+Deletes a user by their ID.
 
 #### Category API
+CategoryController handles all functionalities related to transaction categories in the BudgetManagementAPI. It includes endpoints for creating, updating, retrieving, and deleting transaction categories.
+
 ### POST	api/category/
-To create a category.
+Creates a new transaction category (like Rent, Groceries, etc) for a specified user. Categories are used to classify transactions.
 
 ### GET	    api/category/{id}
-Get the category by category id.
+Retrieves the details of a specific transaction category by its ID. The returned data includes the category description and the associated user.
 
 ### GET	    api/category/
-Get the list of categories.
+Retrieves a list of all transaction categories for all users.
 
 ### PUT     api/category/{id}
-Update the category by category id.
+Updates the description of a transaction category.
 
 ### DELETE	api/category/{id}
-Remove category by category id.
+Deletes a transaction category by its ID.
+
+### GET   api/greetings/greeting
+Retrieves a localized greeting message based on the requested language, which is determined through the Accept-Language request header.
 
 #### Transaction API
+TransactionController is responsible for handling all transaction related operations in the BudgetManagementAPI. It manages the creation, retrieval, updating, and deletion of income and expense transactions.
+
 ### POST	api/transaction/
-To create a transaction.
+Records a new income or expense transaction under a specified category and user. The income field determines whether the transaction is categorized as income if true or an expense if false.
 
-### GET	api/transaction/{id}
-Get the transaction by transaction id.
+### GET	 api/transaction/{id}
+Retrieves the details of a specific transaction by its ID.
 
-### GET		api/transaction/	
-Get the list of transactions.
+### GET  api/transaction/	
+Retrieves a list of all recorded transactions.
+
+### GET  api/transaction/user/{id}
+Retrieves all transactions associated with a specific user ID.
+
+### GET  api/transaction/user/{id}/expenses
+Retrieves all expenses associated with a specific user. Filters transactions based on whether they are categorized as expenses.
+
+### GET  api/transaction/user/{id}/incomes
+Retrieves all income transactions for a specific user identified by their user ID.
+
+### GET  api/transaction/summary/{id}
+Provides a financial summary including total income, total expenses, and the balance for a specific user.
+
+### GET   api/transaction/summary/category/{id}
+Provides a summary of a specific transaction category, including total income and expenses for that category.
+
+### GET  api/transaction/1/range?startDate=2025-01-01&endDate=2025-02-01
+Retrieves all transactions for a specific user (by user ID) within a given date range. The start and end dates are provided as query parameters to filter transactions occurring within the specified period.
 
 ### PUT		api/transaction/{id}
-Update the transaction by transaction id.
+Updates an existing transaction by its ID. The transaction details, including the amount, income/expense type, category, and user, are provided in the request body to modify the existing transaction.
 
 ### DELETE	api/transaction/{id}
-Remove transaction by transaction id.
+Deletes a specific transaction identified by its ID. This removes the transaction record from the system until re-running, since hibernate configuration is set to create-drop.
