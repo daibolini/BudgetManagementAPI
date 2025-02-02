@@ -94,10 +94,11 @@ public class TransactionController {
         return summary;
     }
 
-    @GetMapping("/summary/{userId}")
-    public Map<String, String> getBudgetSummaryByCategory(@PathVariable Long userId) {
-        Map<String, String> summary = new HashMap<>();
+    @GetMapping("/summary/category/{userId}")
+        public Map<String, String> getBudgetSummaryByCategory(@PathVariable Long userId) {
+            Map<String, String> summary = new HashMap<>();
 
+    TransactionService
         Map<String, Double> summaryTotal = TransactionServiceImpl.getUserTransactionCategorySummary(userId);
         summaryTotal.forEach((categoryDescription, amount) -> 
             summary.put(categoryDescription, String.format("%.2f", amount)) // Format to 2 decimal places
