@@ -1,6 +1,7 @@
 package ca.vanier.budgetmanagementapi.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import ca.vanier.budgetmanagementapi.entity.Transaction;
 import ca.vanier.budgetmanagementapi.services.TransactionServiceImpl;
 
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -96,16 +98,21 @@ public class TransactionController {
         public Map<String, String> getBudgetSummaryByCategory(@PathVariable Long userId) {
             Map<String, String> summary = new HashMap<>();
 
-        
+    TransactionService
         Map<String, Double> summaryTotal = TransactionServiceImpl.getUserTransactionCategorySummary(userId);
-
         summaryTotal.forEach((categoryDescription, amount) -> 
-            summary.put(categoryDescription, String.format("%.2f", amount))
-    );
-
-
-        summary.put("Balance", String.format("%.2f", TransactionServiceImpl.getUserBalance(userId)));
-
+            summary.put(categoryDescription, String.format("%.2f", amount)) // Format to 2 decimal places
+        );
+        summary.put("balance", String.format("%.2f", TransactionServiceImpl.getUserBalance(userId)));
         return summary;
+    }
+
+    @GetMapping("/{userId}/range/{startDate}/{endDate}")
+    public List<Transaction> getTransactionsBetweenDataRange(
+        @PathVariable Long userId,
+        @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime startDate,
+        @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime endDate
+    ) {
+        return TransactionServiceImpl.getTransactionsByDateRange(userId, startDate, endDate);
     }
 }

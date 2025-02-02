@@ -14,6 +14,7 @@ import ca.vanier.budgetmanagementapi.repository.UserRepository;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -42,27 +43,27 @@ public class TransactionServiceImpl implements TransactionService {
 
     @Override
     public Transaction save(Transaction transaction) {
-    logger.info("Saving transaction: " + transaction.getId());
-    Users existingUser = userRepository.findById(transaction.getUser().getId())
-    .orElseThrow(() -> new RuntimeException("User not found"));
+        logger.info("Saving transaction: " + transaction.getId());
+        Users existingUser = userRepository.findById(transaction.getUser().getId())
+        .orElseThrow(() -> new RuntimeException("User not found"));
 
-    // Ensure category exists
-    Category existingCategory = categoryRepository.findById(transaction.getCategory().getId())
-    .orElseThrow(() -> new RuntimeException("Category not found"));
+        // Ensure category exists
+        Category existingCategory = categoryRepository.findById(transaction.getCategory().getId())
+        .orElseThrow(() -> new RuntimeException("Category not found"));
 
-    // Save the transaction first
-    Transaction savedTransaction = transactionRepository.save(transaction);
+        // Save the transaction first
+        Transaction savedTransaction = transactionRepository.save(transaction);
 
-    if (transactionRepository.existsById(transaction.getId())) {
-    // Create and save a new UserCategory entry
-    UserCategory userCategory = new UserCategory();
-    userCategory.setUser(existingUser);
-    userCategory.setCategory(existingCategory);
-    userCategoryRepository.save(userCategory);
+        if (transactionRepository.existsById(transaction.getId())) {
+            // Create and save a new UserCategory entry
+            UserCategory userCategory = new UserCategory();
+            userCategory.setUser(existingUser);
+            userCategory.setCategory(existingCategory);
+            userCategoryRepository.save(userCategory);
+        }
+
+        return savedTransaction; 
     }
-
-return savedTransaction; 
-}
 
     @Override
     public Transaction update(Long id, Transaction transactionDetails) {
@@ -178,6 +179,11 @@ return savedTransaction;
         
         return getUserBalance(userId);
 
+    }
+
+    @Override
+    public List<Transaction> getTransactionsByDateRange(Long userId, LocalDateTime startDate, LocalDateTime endDate) {
+        return transactionRepository.findAllByUserIdAndCreatedAtBetween(userId, startDate, endDate);
     }
 
 
