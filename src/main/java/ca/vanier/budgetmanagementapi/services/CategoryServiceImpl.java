@@ -3,7 +3,8 @@ package ca.vanier.budgetmanagementapi.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import ca.vanier.budgetmanagementapi.Exceptions.UserNotFoundException;
+import ca.vanier.budgetmanagementapi.Exceptions.CategoryNotFoundException;
+import ca.vanier.budgetmanagementapi.Exceptions.TransactionNotFoundException;
 import ca.vanier.budgetmanagementapi.entity.Category;
 import ca.vanier.budgetmanagementapi.repository.CategoryRepository;
 import jakarta.persistence.EntityNotFoundException;
@@ -60,11 +61,10 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     @Transactional
-    //use transactional to ensure the task is closed after completion
     public void delete(Long id) {
         logger.info("Deleting category: " + id);
         Category user = categoryRepository.findById(id)
-                .orElseThrow(() -> new UserNotFoundException("Category with id " + id + " not found"));
+                .orElseThrow(() -> new CategoryNotFoundException("Category with id " + id + " not found"));
         categoryRepository.delete(user);
         logger.info("Deleted caterogy with id deleted successfully" + id);
     }
