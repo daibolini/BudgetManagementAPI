@@ -70,21 +70,6 @@ public class TransactionController {
         return ResponseEntity.ok(TransactionServiceImpl.getIncomesByUserId(userId));
     }
 
-    // @GetMapping("/user/{userId}/income")
-    // public ResponseEntity<Double> getTotalIncome(@PathVariable Long userId) {
-    //     return ResponseEntity.ok(TransactionServiceImpl.getTotalIncomeByUser(userId));
-    // }
-
-    // @GetMapping("/user/{userId}/expenses")
-    // public ResponseEntity<Double> getTotalExpenses(@PathVariable Long userId) {
-    //     return ResponseEntity.ok(TransactionServiceImpl.getTotalExpensesByUser(userId));
-    // }
-
-    // @GetMapping("/user/{userId}/balance")
-    // public ResponseEntity<Double> getUserBalance(@PathVariable Long userId) {
-    //     return ResponseEntity.ok(TransactionServiceImpl.getUserBalance(userId));
-    // }
-
     @GetMapping("/summary/{userId}")
     public Map<String, Double> getBudgetSummary(@PathVariable Long userId) {
         Map<String, Double> summary = new HashMap<>();
@@ -98,12 +83,12 @@ public class TransactionController {
         public Map<String, String> getBudgetSummaryByCategory(@PathVariable Long userId) {
             Map<String, String> summary = new HashMap<>();
 
-    TransactionService
+
         Map<String, Double> summaryTotal = TransactionServiceImpl.getUserTransactionCategorySummary(userId);
         summaryTotal.forEach((categoryDescription, amount) -> 
             summary.put(categoryDescription, String.format("%.2f", amount)) // Format to 2 decimal places
         );
-        summary.put("balance", String.format("%.2f", TransactionServiceImpl.getUserBalance(userId)));
+        summary.put("Balance", String.format("%.2f", TransactionServiceImpl.getUserBalance(userId)));
         return summary;
     }
 
