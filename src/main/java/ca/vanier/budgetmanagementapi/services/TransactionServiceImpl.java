@@ -14,6 +14,7 @@ import ca.vanier.budgetmanagementapi.repository.UserRepository;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -175,7 +176,7 @@ public class TransactionServiceImpl implements TransactionService {
 
     @Override
     public double getUserBalanceByCategory(Long userId, Long categoryId) {
-         getUserTransactionCategorySummary(userId);
+        getUserTransactionCategorySummary(userId);
         
         return getUserBalance(userId);
 
@@ -185,10 +186,5 @@ public class TransactionServiceImpl implements TransactionService {
     public List<Transaction> getTransactionsByDateRange(Long userId, LocalDateTime startDate, LocalDateTime endDate) {
         return transactionRepository.findAllByUserIdAndCreatedAtBetween(userId, startDate, endDate);
     }
-
-
-
-
-    
 
 }

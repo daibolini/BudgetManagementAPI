@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import ca.vanier.budgetmanagementapi.entity.Transaction;
 import ca.vanier.budgetmanagementapi.services.TransactionServiceImpl;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.List;
@@ -92,12 +93,24 @@ public class TransactionController {
         return summary;
     }
 
-    @GetMapping("/{userId}/range/{startDate}/{endDate}")
-    public List<Transaction> getTransactionsBetweenDataRange(
-        @PathVariable Long userId,
-        @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime startDate,
-        @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime endDate
-    ) {
-        return TransactionServiceImpl.getTransactionsByDateRange(userId, startDate, endDate);
+    // @GetMapping("/{userId}/range/{startDate}/{endDate}")
+    // public List<Transaction> getTransactionsBetweenDataRange(
+    //     @PathVariable Long userId,             
+    //     @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate startDate,             
+    //     @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endDate) {
+    
+    //     return TransactionServiceImpl.getTransactionsByDateRange(userId, startDate, endDate);
+    // }
+
+    @GetMapping("/{userId}/range")
+    public List<Transaction> getTransactionsByDateRange(             
+        @PathVariable Long userId,             
+        @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate startDate,             
+        @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endDate) {
+
+        LocalDateTime startDateTime= startDate.atStartOfDay();
+        LocalDateTime endDateTime= endDate.atTime(23, 59, 59, 999999999); 
+
+        return TransactionServiceImpl.getTransactionsByDateRange(userId, startDateTime, endDateTime);
     }
 }
