@@ -37,7 +37,7 @@ public class UserCategoryServiceImpl implements UserCategoryService {
 
         @Override
         public UserCategory save(UserCategory userCategory) {
-                return userCategoryRepository.save(userCategory);
+            return userCategoryRepository.save(userCategory);
         }
         
 }
