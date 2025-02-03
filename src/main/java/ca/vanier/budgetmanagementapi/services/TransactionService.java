@@ -15,6 +15,7 @@ public interface TransactionService {
     Transaction update(Long id, Transaction transactionDetails);
 
     Optional<Transaction> findById(Long id);
+    Transaction findExistingByTransactionId(Long id);
 
     List<Transaction> findAll();
 
@@ -33,12 +34,8 @@ public interface TransactionService {
     
     double getUserBalance(Long userId);
 
-    double getUserBalanceByCategory(Long userId, Long categoryId);
-
     Map<String, Double> getUserTransactionCategorySummary(Long userId);
     
     List<Transaction> getTransactionsByDateRange(Long userId, LocalDateTime startDate, LocalDateTime endDate);
-
-
 
 }

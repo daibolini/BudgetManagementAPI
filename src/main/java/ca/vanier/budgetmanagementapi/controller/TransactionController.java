@@ -31,7 +31,7 @@ public class TransactionController {
     // READ (get user by ID)
     @GetMapping("/{id}")
     public ResponseEntity<Transaction> getTransactionById(@PathVariable Long id) {
-        Transaction transaction = TransactionServiceImpl.findExistingById(id);
+        Transaction transaction = TransactionServiceImpl.findExistingByTransactionId(id);
         return new ResponseEntity<>(transaction, HttpStatus.OK);
     }
 
