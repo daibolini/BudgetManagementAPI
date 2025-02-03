@@ -115,7 +115,7 @@ Provides a financial summary including total income, total expenses, and the bal
 ### GET   api/transaction/summary/category/{id}
 Provides a summary of a specific transaction category, including total income and expenses for that category.
 
-### GET  api/transaction/1/range?startDate=2025-01-01&endDate=2025-02-01
+### GET  api/transaction/1/range?startDate={Date}&endDate={Date}
 Retrieves all transactions for a specific user (by user ID) within a given date range. The start and end dates are provided as query parameters to filter transactions occurring within the specified period.
 
 ### PUT		api/transaction/{id}
