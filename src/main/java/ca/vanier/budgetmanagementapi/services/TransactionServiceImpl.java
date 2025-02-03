@@ -60,7 +60,7 @@ public class TransactionServiceImpl implements TransactionService {
         .orElseThrow(() -> new CategoryNotFoundException("Category not found with ID: " + transaction.getCategory().getId()));
 
         // Save the transaction first
-        if(transaction.getCategory().getId() == 1 || transaction.getCategory().getDescription().equalsIgnoreCase("income")){
+        if(transaction.getCategory().getId() == 1){
             transaction.setIncome(true);
         }
 
